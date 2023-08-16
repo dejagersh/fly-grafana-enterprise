@@ -5,6 +5,16 @@ app="grafana-on-fly"
    source="grafana_data"
    destination="/var/lib/grafana"
 
+[build]
+  image="grafana/grafana-enterprise:10.0.3-ubuntu"
+
+[env]
+  GF_SMTP_ENABLED="true"
+  GF_SMTP_FROM_ADDRESS="info@example.com"
+  GF_SMTP_FROM_NAME="Grafana Dashboard"
+  GF_SMTP_HOST="smtp.postmarkapp.com:2525"
+  # Configure GF_SMTP_USER and GF_SMTP_PASSWORD with `fly secrets set`
+
 [http_service]
   internal_port = 3000
   force_https = true
