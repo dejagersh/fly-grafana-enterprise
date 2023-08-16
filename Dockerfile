@@ -7,6 +7,6 @@ RUN apt update && apt install -y vim crudini htop
 
 COPY ./custom-run.sh /custom-run.sh
 
-USER grafana
+USER root
 
 ENTRYPOINT ["/custom-run.sh"]

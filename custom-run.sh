@@ -1,5 +1,5 @@
 #!/bin/bash -e
 
-crudini --set /etc/grafana/grafana.ini smpt password $SMTP_PASSWORD
+crudini --set /etc/grafana/grafana.ini smpt password hello
 
-exec "/run.sh"
+su -c /bin/bash -c "/run.sh" grafana
