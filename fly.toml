@@ -1,0 +1,12 @@
+primary_region="ams"
+app="grafana-on-fly"
+
+[mounts]
+   source="grafana_data"
+   destination="/var/lib/grafana"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = false
