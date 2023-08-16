@@ -5,9 +5,9 @@ USER root
 
 RUN apt update && apt install -y vim crudini htop
 
-COPY ./custom-run.sh /custom-run.sh
+COPY ./entrypoint.sh /entrypoint.sh
 COPY ./run.sh /run.sh
 
 USER root
 
-ENTRYPOINT ["/custom-run.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
