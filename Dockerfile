@@ -1,9 +1,14 @@
-FROM grafana/grafana-enterprise:10.0.2-ubuntu as base
+FROM grafana/grafana-enterprise:10.0.3-ubuntu as base
 
-# to be able to install packages
 USER root
 
-RUN apt update && apt install -y vim crudini htop
+RUN apt-get update \
+    && apt-get install -y crudini \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+RUN crudini --set /etc/grafana/grafana.ini smtp from_name FooBar \
+    && crudini --set /etc/grafana/grafana.ini smtp from_email admin@example.com
 
 COPY ./entrypoint.sh /entrypoint.sh
 
