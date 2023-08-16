@@ -1,6 +1,3 @@
-primary_region="ams"
-app="grafana-on-fly"
-
 [build]
   image="grafana/grafana-enterprise:10.0.3-ubuntu"
 
