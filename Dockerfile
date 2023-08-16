@@ -6,6 +6,7 @@ USER root
 RUN apt update && apt install -y vim crudini htop
 
 COPY ./custom-run.sh /custom-run.sh
+COPY ./run.sh /run.sh
 
 USER root
 
